@@ -1,5 +1,7 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+    // Remmelt zegt:
+    "editor.formatOnSave": false,
     // Unofficially, QMK uses spaces for indentation
     "editor.insertSpaces": true,
     // Configure glob patterns for excluding files and folders.
@@ -9,15 +11,14 @@
         "**/*.bin": true
     },
     "files.associations": {
-        "*.h": "c",
-        "*.c": "c",
-        "*.inc": "c",
-        "*.cpp": "cpp",
-        "*.hpp": "cpp",
-        "xstddef": "c",
-        "type_traits": "c",
-        "utility": "c",
-        "ranges": "c"
+      "*.h": "c",
+      "*.c": "c",
+      "*.inc": "c",
+      "*.cpp": "cpp",
+      "*.hpp": "cpp",
+      "xstddef": "c",
+      "type_traits": "c",
+      "utility": "c"
     },
     "[markdown]": {
         "editor.trimAutoWhitespace": false,
