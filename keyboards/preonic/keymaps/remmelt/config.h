@@ -2,6 +2,6 @@
 #define CONFIG_USER_H
 #include "../../rev3/config.h"
 
-#define TAPPING_TERM 100
+#define TAPPING_TERM 200
 
 #endif

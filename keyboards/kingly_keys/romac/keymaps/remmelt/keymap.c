@@ -1,6 +1,30 @@
 #include QMK_KEYBOARD_H
-#if __has_include("remmelt.h")
-#    include "remmelt.h"
-#endif
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[0] = LAYOUT(QMKBEST, KC_8, KC_9, KC_4, KC_5, KC_6, KC_1, KC_2, KC_3, MO(1), KC_0, KC_DOT), [1] = LAYOUT(KC_ESC, KC_ESC, KC_ESC, KC_ESC, KC_UP, KC_ESC, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_ESC, KC_ESC)};
+enum preonic_layers {
+  _BASE,
+  _NUMBERS
+};
+
+#define RUN2CUR A(KC_F9)     // Run to cursor
+#define RUN G(A(KC_R))       // Run/resume program
+#define STEPOVR KC_F8        // Step over
+#define RECOMPL G(S(KC_F9))  // Recompile current file
+#define MO_NMBR MO(_NUMBERS) // Momentarily switch to numbers layer
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+	[_BASE] = LAYOUT(
+		KC_PGUP, XXXXXXX, KC_HOME, \
+		KC_PGDN, STEPOVR, KC_END, \
+		XXXXXXX, RUN2CUR, RUN, \
+		MO_NMBR, XXXXXXX, RECOMPL \
+	),
+
+	[_NUMBERS] = LAYOUT(
+		KC_7,    KC_8,    KC_9, \
+		KC_4,    KC_5,    KC_6, \
+		KC_1,    KC_2,    KC_3, \
+		_______, KC_0,    KC_DOT \
+	),
+
+};

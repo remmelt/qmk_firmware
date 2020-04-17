@@ -6,13 +6,16 @@ enum preonic_layers {
   _MEDIA,
 };
 
-#define ONE_PWD G(KC_BSLS)  // Open 1Password
-#define WIN_MAX LCA(KC_ENT) // Grow window to max size in Magnet
-#define FND_USG LCA(KC_ENT) // Find usages in IntelliJ
+#define ONE_PWD G(KC_BSLS)     // Open 1Password
+#define WIN_MAX HYPR(KC_ENT)   // Grow window to max size in Rectangle
+#define WINMMAX MEH(KC_ENT)    // Grow window to almost max size in Rectangle
+#define NXTDSPL HYPR(KC_RIGHT) // Window to next display in Rectangle
+#define LAST2_3 MEH(KC_Q)      // Last 2/3 in Rectangle
+#define FND_USG G(A(KC_F7))    // Find usages in IntelliJ
 #define ESC_CTL MT(MOD_LCTL, KC_ESC) // hold: L_CTL, tap: ESC
 #define BACK    LGUI(KC_LBRC)
 #define FORWARD LGUI(KC_RBRC)
-#define PASTE   G(S(KC_V)) // Pastes in Paste
+#define PASTE   G(S(KC_V))     // Pastes in Paste
 #define RSFT_SL RSFT_T(KC_BSLASH)  // hold: R_SHIFT, tap: KC_BSLASH
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shft \|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Lower| 1Pwd | Alt  | GUI  | Raise|    Space    |Enter | Left | Down |  Up  |Right |
+ * | Media| 1Pwd | Alt  |  GUI | Raise|    Space    |Enter | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
@@ -42,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |WinMax|  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  =   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |   [  |   ]  |   {  |   }  |FndUsg|  No  |  No  |  No  |  F11 |  F12 | Del  |
+ * |NXTDSP|   [  |   ]  |   {  |   }  |FndUsg|  No  |  No  |  No  |  F11 |  F12 | Del  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |(EscC)|      |      |      |      |      | Left | Down |  Up  |Right |      |      |
+ * |(EscC)|      |      |      |      |      | Left | Down |  Up  |Right |      |Last23|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |(Shft)|      |      |      |Paste |      |      |      |      |      |      |   \  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -53,15 +56,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   WIN_MAX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_EQL,  \
-  XXXXXXX, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, FND_USG, XXXXXXX, XXXXXXX, XXXXXXX, KC_F11,  KC_F12,  KC_DEL,  \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, RESET,   \
+  NXTDSPL, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, FND_USG, XXXXXXX, XXXXXXX, XXXXXXX, KC_F11,  KC_F12,  KC_DEL,  \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, LAST2_3,   \
   _______, XXXXXXX, XXXXXXX, XXXXXXX, PASTE,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, \
   XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______, _______, BACK,    XXXXXXX, XXXXXXX, FORWARD
 ),
 
 /* Media
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |      |      |      |      | Reset|
+ * |WINMMX|      |      |      |      |      |      |      |      |      |      | Reset|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -73,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_MEDIA] = LAYOUT_preonic_grid( \
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   \
+  WINMMAX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
