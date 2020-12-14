@@ -9,9 +9,8 @@
 - `make tokyo60:remmelt:dfu`
 
 ## Romac
-https://config.qmk.fm/#/kingly_keys/romac/LAYOUT
-cd /Users/rpit/dev/muk/qmk_firmware
-mv ~/Downloads/default_803ba23.json . && python3 util/json_to_c.py default_803ba23.json >! keyboards/romac/keymaps/remmelt/keymap.c && make kingly_keys/romac:remmelt:avrdude
+open keyboards/kingly_keys/romac/keymaps/remmelt/keymap.c and edit there
+make kingly_keys/romac:remmelt:dfu
 
 ## Preonic
 open keyboards/preonic/keymaps/remmelt/keymap.c and edit there
